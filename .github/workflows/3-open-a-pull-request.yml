@@ -85,7 +85,8 @@ jobs:
           if [ -n "$PR_BODY" ]; then
             echo "STEP_MESSAGE=Pull request description" >> $GITHUB_OUTPUT
           else
-            echo "STEP_MESSAGE=Pull request description is empty (add one to complete this step)" >> $GITHUB_OUTPUT
+            echo "STEP_MESSAGE=Pull request description is empty" >> $GITHUB_OUTPUT
+            exit 1
           fi
         env:
           PR_BODY: ${{ github.event.pull_request.body }}
